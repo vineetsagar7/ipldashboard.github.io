@@ -20,18 +20,12 @@ csv()
         });
     })
 
-csv()
-    .fromFile(Ball_by_Ball)
-    .on("end_parsed", function (jsonArrayObj) { //when parse finished, result will be emitted here.
-        console.log(jsonArrayObj);
 
-        fs.writeFileSync("./data-set-conversion/json/Ball_by_Ball.json", JSON.stringify(jsonArrayObj), 'utf8', function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log("The file was saved!");
-        });
-    })
+var csvConverter = new csv({ constructResult: false, toArrayString: true }); // The constructResult parameter=false will turn off final result construction in memory for stream feature. toArrayString will stream out a normal JSON array object.
+var readStream = require("fs").createReadStream(Ball_by_Ball);
+var writeStream = require("fs").createWriteStream("data-set-conversion/json/Ball_by_Ball.json");
+readStream.pipe(csvConverter).pipe(writeStream);
+
 
 csv()
     .fromFile(Match)
