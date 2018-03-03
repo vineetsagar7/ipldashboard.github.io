@@ -99,17 +99,17 @@ export default {
    * Request can be fetched and saved in the service worker.
    */
 
-  // created() {
-  //   axios
-  //     .get(`http://localhost:3333/getIPLResult`)
-  //     .then(response => {
-  //       // JSON responses are automatically parsed.
-  //       this.posts = response.data;
-  //     })
-  //     .catch(e => {
-  //       this.errors.push(e);
-  //     });
-  // },
+  created() {
+    axios
+      .get(`https://mighty-garden-54587.herokuapp.com/getBatsmanAggScore`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.posts = response.data;
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
+  },
 
   mounted() {
     setInterval(() => {

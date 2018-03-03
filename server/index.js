@@ -3,7 +3,7 @@ var batsmanAggScore = require('./frontendData/batsmanAggScore.json')
 var matchPerformance = require('./frontendData/matchPerformance')
 var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
-
+var cool = require('cool-ascii-faces');
 const express = require('express');
 var _ = require('lodash');
 const app = express();
@@ -33,5 +33,9 @@ app.get('/getRunSortedBySeason', (req, res) => {
     });
 })
 
-app.listen(3333);
-console.log('Listening on localhost:3333');
+//Heroku Test
+app.get('/cool', function(request, response) {
+    response.send(cool());
+  });
+
+app.listen(process.env.PORT || 5000)
