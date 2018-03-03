@@ -71,7 +71,7 @@ import ReactiveExample from "./charts/ReactiveExample";
 import ReactivePropExample from "./charts/ReactivePropExample";
 import ScatterExample from "./charts/ScatterExample";
 import HorizontalBarExample from "./charts/HorizontalBarExample";
-//import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "app",
