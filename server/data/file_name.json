@@ -1,0 +1,484 @@
+{
+    "schema": {
+        "fields": [
+            {
+                "name": "index",
+                "type": "integer"
+            },
+            {
+                "name": "Season_Id",
+                "type": "integer"
+            },
+            {
+                "name": "Match_Winner_Id",
+                "type": "number"
+            },
+            {
+                "name": "IS_Result",
+                "type": "integer"
+            }
+        ],
+        "primaryKey": [
+            "index"
+        ],
+        "pandas_version": "0.20.0"
+    },
+    "data": [
+        {
+            "index": 0,
+            "Season_Id": 1,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 1,
+            "Season_Id": 1,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 2,
+            "Season_Id": 1,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 3,
+            "Season_Id": 1,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 4,
+            "Season_Id": 1,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 13
+        },
+        {
+            "index": 5,
+            "Season_Id": 1,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 6,
+            "Season_Id": 1,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 7,
+            "Season_Id": 1,
+            "Match_Winner_Id": 8.0,
+            "IS_Result": 2
+        },
+        {
+            "index": 8,
+            "Season_Id": 2,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 3
+        },
+        {
+            "index": 9,
+            "Season_Id": 2,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 10,
+            "Season_Id": 2,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 11,
+            "Season_Id": 2,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 12,
+            "Season_Id": 2,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 13,
+            "Season_Id": 2,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 14,
+            "Season_Id": 2,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 5
+        },
+        {
+            "index": 15,
+            "Season_Id": 2,
+            "Match_Winner_Id": 8.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 16,
+            "Season_Id": 3,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 17,
+            "Season_Id": 3,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 18,
+            "Season_Id": 3,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 19,
+            "Season_Id": 3,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 20,
+            "Season_Id": 3,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 21,
+            "Season_Id": 3,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 22,
+            "Season_Id": 3,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 23,
+            "Season_Id": 3,
+            "Match_Winner_Id": 8.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 24,
+            "Season_Id": 4,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 25,
+            "Season_Id": 4,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 26,
+            "Season_Id": 4,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 27,
+            "Season_Id": 4,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 28,
+            "Season_Id": 4,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 29,
+            "Season_Id": 4,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 30,
+            "Season_Id": 4,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 31,
+            "Season_Id": 4,
+            "Match_Winner_Id": 8.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 32,
+            "Season_Id": 4,
+            "Match_Winner_Id": 9.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 33,
+            "Season_Id": 4,
+            "Match_Winner_Id": 10.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 34,
+            "Season_Id": 5,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 12
+        },
+        {
+            "index": 35,
+            "Season_Id": 5,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 36,
+            "Season_Id": 5,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 37,
+            "Season_Id": 5,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 38,
+            "Season_Id": 5,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 39,
+            "Season_Id": 5,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 40,
+            "Season_Id": 5,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 41,
+            "Season_Id": 5,
+            "Match_Winner_Id": 8.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 42,
+            "Season_Id": 5,
+            "Match_Winner_Id": 10.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 43,
+            "Season_Id": 6,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 44,
+            "Season_Id": 6,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 45,
+            "Season_Id": 6,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 12
+        },
+        {
+            "index": 46,
+            "Season_Id": 6,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 47,
+            "Season_Id": 6,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 48,
+            "Season_Id": 6,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 3
+        },
+        {
+            "index": 49,
+            "Season_Id": 6,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 13
+        },
+        {
+            "index": 50,
+            "Season_Id": 6,
+            "Match_Winner_Id": 10.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 51,
+            "Season_Id": 6,
+            "Match_Winner_Id": 11.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 52,
+            "Season_Id": 7,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 53,
+            "Season_Id": 7,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 5
+        },
+        {
+            "index": 54,
+            "Season_Id": 7,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 55,
+            "Season_Id": 7,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 12
+        },
+        {
+            "index": 56,
+            "Season_Id": 7,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 57,
+            "Season_Id": 7,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 2
+        },
+        {
+            "index": 58,
+            "Season_Id": 7,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 59,
+            "Season_Id": 7,
+            "Match_Winner_Id": 11.0,
+            "IS_Result": 6
+        },
+        {
+            "index": 60,
+            "Season_Id": 8,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 61,
+            "Season_Id": 8,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 62,
+            "Season_Id": 8,
+            "Match_Winner_Id": 3.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 63,
+            "Season_Id": 8,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 3
+        },
+        {
+            "index": 64,
+            "Season_Id": 8,
+            "Match_Winner_Id": 5.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 65,
+            "Season_Id": 8,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 5
+        },
+        {
+            "index": 66,
+            "Season_Id": 8,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 10
+        },
+        {
+            "index": 67,
+            "Season_Id": 8,
+            "Match_Winner_Id": 11.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 68,
+            "Season_Id": 9,
+            "Match_Winner_Id": 1.0,
+            "IS_Result": 8
+        },
+        {
+            "index": 69,
+            "Season_Id": 9,
+            "Match_Winner_Id": 2.0,
+            "IS_Result": 9
+        },
+        {
+            "index": 70,
+            "Season_Id": 9,
+            "Match_Winner_Id": 4.0,
+            "IS_Result": 4
+        },
+        {
+            "index": 71,
+            "Season_Id": 9,
+            "Match_Winner_Id": 6.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 72,
+            "Season_Id": 9,
+            "Match_Winner_Id": 7.0,
+            "IS_Result": 7
+        },
+        {
+            "index": 73,
+            "Season_Id": 9,
+            "Match_Winner_Id": 11.0,
+            "IS_Result": 11
+        },
+        {
+            "index": 74,
+            "Season_Id": 9,
+            "Match_Winner_Id": 12.0,
+            "IS_Result": 5
+        },
+        {
+            "index": 75,
+            "Season_Id": 9,
+            "Match_Winner_Id": 13.0,
+            "IS_Result": 9
+        }
+    ]
+}
