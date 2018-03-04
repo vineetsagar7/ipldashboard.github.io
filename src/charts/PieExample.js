@@ -2,6 +2,7 @@ import { Pie } from '../BaseCharts'
 
 export default {
   extends: Pie,
+  props: [dissmisalType],
   mounted () {
     this.renderChart({
       labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
@@ -13,7 +14,7 @@ export default {
             '#00D8FF',
             '#DD1B16'
           ],
-          data: [40, 20, 80, 10]
+          data: dissmisalType.data
         }
       ]
     }, {responsive: true, maintainAspectRatio: false})

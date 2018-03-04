@@ -59,7 +59,6 @@ with open('../frontendData/runSortedBySeason.json', 'w') as f:
     f.write(runSortedBySeason.to_json(orient='table'))
 #print(sortedScore)
 
-
 #Bowlers:------------------------------------------------------------------------------
 #3: filter all the cases caught, bowled, runOut and many more.
 #TODO: filter "run out" from below data. 

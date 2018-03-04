@@ -1,6 +1,8 @@
 <template>
-  <div class="md-layout">
-    <div class="md-layout-item">
+
+   <div class="md-layout md-gutter md-alignment-center">
+     <div class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
+
       <md-card>
       <md-card-header>
         <div class="md-title">Most Wickets Tacker:</div>
@@ -8,18 +10,23 @@
       <md-card-content>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
       </md-card-content>
+    </md-card>
+    </div>
+
+   <div class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
+
+      <md-card>
+      <md-card-header>
+        <div class="md-title">Dissmisal Type in all IPL matches</div>
+      </md-card-header>
+      <md-card-content>
+        <pie-example :dissmisalType="this.DissmisalType"> </pie-example>
+         </md-card-content>
       <md-card-actions>
         <md-button>Action</md-button>
         <md-button>Action</md-button>
       </md-card-actions>
     </md-card>
-
-    </div>
-    <div class="md-layout-item">
-        <pie-example> </pie-example>
-    </div>
-    <div class="md-layout-item">
-
     </div>
   </div>
 </template>
@@ -31,9 +38,11 @@ import PieExample from "../../charts/PieExample";
 export default {
   name: "LayoutHorizontalColumns",
   components: {
+    PieExample,
     axios
   },
   created() {
+    this.DissmisalType = {};
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers`)
       .then(response => {
@@ -50,7 +59,7 @@ export default {
       .then(response => {
         // JSON responses are automatically parsed.
         debugger;
-        this.posts = response.data;
+        this.DissmisalType = response.data;
       })
       .catch(e => {
         this.errors.push(e);
@@ -63,18 +72,17 @@ export default {
 @import "~vue-material/src/components/MdAnimation/variables.scss";
 
 .md-layout-item {
-  height: 40px;
+  height: 200px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  transition: 0.3s $md-transition-stand-timing;
 
-  &:nth-child(1) {
-    background: md-get-palette-color(grey, 300);
-  }
-
-  &:nth-child(2) {
-    background: md-get-palette-color(grey, 400);
-  }
-
-  &:nth-child(3) {
-    background: md-get-palette-color(grey, 500);
+  &:after {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: md-get-palette-color(purple, 200);
+    content: " ";
   }
 }
 </style>

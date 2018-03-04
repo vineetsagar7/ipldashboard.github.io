@@ -3,6 +3,7 @@ var batsmanAggScore = require('./frontendData/batsmanAggScore.json')
 var matchPerformance = require('./frontendData/matchPerformance')
 var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
+var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
 var cool = require('cool-ascii-faces');
 const express = require('express');
 var _ = require('lodash');
@@ -70,7 +71,7 @@ app.get('/getDissmisalType', (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
-        data: matchPerformance
+        data: seasonWiseDissmisal
     });
 })
 
