@@ -47,6 +47,19 @@ batsmanAggScore = filterMergedWithPlayer.sort_values(by=['Batsman_Scored'], asce
 with open('../frontendData/batsmanAggScore.json', 'w') as f:
     f.write(batsmanAggScore.to_json(orient='table'))
 
+# Bat: top performenrs by match 
+#TODO: Could be done in better way. 
+BatsManScoredPerSeasonWise = ballbyball[['Match_Id', 'Striker_Id', 'Batsman_Scored']]
+mergeWithMatch = pd.merge(BatsManScoredPerSeasonWise, match)
+filterBySeasonId = mergeWithMatch.groupby(['Season_Id', 'Striker_Id'])['Batsman_Scored'].sum().reset_index()
+filterBySeasonId.columns = ['Season_Id',  'Player_Id',  'Batsman_Scored']
+mergeWithPlayer = pd.merge(filterBySeasonId, player)
+resetTopPerformersBatsman = mergeWithPlayer.groupby(['Season_Id', 'Player_Name'])['Batsman_Scored'].sum().reset_index()
+topPerformersBatsman = resetTopPerformersBatsman.sort_values(['Season_Id','Batsman_Scored'], ascending=[True,False]).reset_index()
+with open('../frontendData/topPerformersBatsman.json', 'w') as f:
+    f.write(topPerformersBatsman.to_json(orient='table'))
+
+
 #TOP BatsMan season Wise run. sorted by season then max run scored
 #TODO: find a way to replace only one coloum.
 ballbyball.columns = ['Match_Id','Innings_Id','Over_Id','Ball_Id','Team_Batting_Id','Team_Bowling_Id','Player_Id','Striker_Batting_Position','Non_Striker_Id','Bowler_Id','Batsman_Scored','Extra_Type','Extra_Runs','Player_dissimal_Id','Dissimal_Type','Fielder_Id']
@@ -61,7 +74,7 @@ with open('../frontendData/runSortedBySeason.json', 'w') as f:
 
 #Bowlers:------------------------------------------------------------------------------
 #3: filter all the cases caught, bowled, runOut and many more.
-#TODO: filter "run out" from below data. 
+#TODO: filter "run out" from below data.
 a = ballbyball.loc[ballbyball['Dissimal_Type'] != ' ', ['Bowler_Id', 'Dissimal_Type']]
 b = a.groupby(['Bowler_Id', 'Dissimal_Type']).agg({'Dissimal_Type' : 'count'})
 mostWisketTackers = b.groupby(['Bowler_Id'])['Dissimal_Type'].sum().reset_index()

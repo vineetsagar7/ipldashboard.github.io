@@ -4,12 +4,20 @@ var matchPerformance = require('./frontendData/matchPerformance')
 var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
 var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
+var topPerformersPerSeason = require('./frontendData/topPerformersBatsman')
 var cool = require('cool-ascii-faces');
 const express = require('express');
 var _ = require('lodash');
 const app = express();
 
 
+const setHeader = function (res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    return res;
+}
 
 app.get('/getBatsmanAggScore', (req, res) => {
 
@@ -75,6 +83,17 @@ app.get('/getDissmisalType', (req, res) => {
     });
 })
 
+
+
+app.get('/getTopPerformersPerSeason', (req, res) => {
+    res = setHeader(res);
+    res.json({
+        data: topPerformersPerSeason
+    });
+})
+
+
+
 app.get('/getRunSortedBySeason', (req, res) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -94,17 +113,6 @@ app.get('/getRunSortedBySeason', (req, res) => {
 
 //Heroku Test
 app.get('/cool', function (request, response) {
-
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-
     response.send(cool());
 });
 

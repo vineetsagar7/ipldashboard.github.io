@@ -20,12 +20,10 @@
         <div class="md-title">Dissmisal Type in all IPL matches</div>
       </md-card-header>
       <md-card-content>
-        <pie-example :dissmisalType="this.DissmisalType"> </pie-example>
+         <div v-if="loading">
+          <pie-example :Index="DissmisalTypeIndex" :data="dissmisalTypeData"> </pie-example>
+        </div>
          </md-card-content>
-      <md-card-actions>
-        <md-button>Action</md-button>
-        <md-button>Action</md-button>
-      </md-card-actions>
     </md-card>
     </div>
   </div>
@@ -41,8 +39,15 @@ export default {
     PieExample,
     axios
   },
+  data() {
+    return {
+      DissmisalTypeIndex: [],
+      dissmisalTypeData: [],
+      loading: false
+    };
+  },
   created() {
-    this.DissmisalType = {};
+    var _this = this;
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers`)
       .then(response => {
@@ -59,7 +64,11 @@ export default {
       .then(response => {
         // JSON responses are automatically parsed.
         debugger;
-        this.DissmisalType = response.data;
+
+        _this.loading = true;
+        _this.DissmisalTypeIndex.push(response.data.data.index);
+        _this.dissmisalTypeData.push(response.data.data.data);
+        console.log(this, dissmisalType);
       })
       .catch(e => {
         this.errors.push(e);
