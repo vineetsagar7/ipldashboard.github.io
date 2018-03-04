@@ -4,13 +4,17 @@ var webpack = require('webpack')
 console.log("ssssss" + process.env.NODE_ENV)
 
 module.exports = {
-    entry: './src/main.js',
+
+
+
+    entry: ['babel-polyfill', './src/main.js'],
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: 'build.js'
     },
     module: {
+
         rules: [
             {
                 test: /\.css$/,
@@ -57,7 +61,6 @@ module.exports = {
                         ]
 
                     }
-                    // other vue-loader options go here
                 }
             },
             {

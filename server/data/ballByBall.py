@@ -66,8 +66,13 @@ with open('../frontendData/runSortedBySeason.json', 'w') as f:
 a = ballbyball.loc[ballbyball['Dissimal_Type'] != ' ', ['Bowler_Id', 'Dissimal_Type']]
 b = a.groupby(['Bowler_Id', 'Dissimal_Type']).agg({'Dissimal_Type' : 'count'})
 mostWisketTackers = b.groupby(['Bowler_Id'])['Dissimal_Type'].sum().reset_index()
+srotedMostWicketTackers = mostWisketTackers.sort_values(by=['Dissimal_Type'], ascending=[False])
+srotedMostWicketTackers.columns = ['Player_Id', 'Dissimal_Type']
+mmergedMostWisketTackers= pd.merge(srotedMostWicketTackers, player).iloc[0:20]
+getOnly = mmergedMostWisketTackers[['Player_Name','Bowling_Skill','Dissimal_Type','Country']]
 with open('../frontendData/mostWisketTackers.json', 'w') as f:
-    f.write(mostWisketTackers.to_json(orient='table'))
+    f.write(getOnly.to_json(orient='table'))
+
 
 #Season wise, Dissmisal type
 result = pd.merge(ballbyball, match)
