@@ -8,9 +8,9 @@
       </md-app-toolbar>
       <md-app-content>
         <!-- <table-search></table-search> -->
+        <session-wise-performance> </session-wise-performance>
         <batsman-performance></batsman-performance>
-        <bowlers-performance></bowlers-performance>
-        <session-wiseper> </session-wiseper>
+        <bowlers-performance></bowlers-performance>      
       </md-app-content>
     </md-app>
   </div>
@@ -24,7 +24,7 @@ import { MdButton, MdContent, MdTabs } from "vue-material/dist/components";
 import VueMaterial from "vue-material";
 import BatsmanPerformance from "./components/batsmanPerformance";
 import bowlersPerformance from "./components/bowlersPerformance";
-import sessionWiseper from "./components/seasionWiseper";
+import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
 import BootstrapVue from "bootstrap-vue";
 
@@ -32,7 +32,7 @@ import BootstrapVue from "bootstrap-vue";
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
 
-//TDOD: import only those which are required, to imperove performence
+//TDOD: import only those which are required, to imperove performence, Not using Bootstrap.....
 Vue.use(VueMaterial);
 Vue.use(BootstrapVue);
 
@@ -41,7 +41,7 @@ export default {
   components: {
     BatsmanPerformance,
     bowlersPerformance,
-    sessionWiseper,
+    sessionWisePerformance,
     TableSearch
   },
   data() {

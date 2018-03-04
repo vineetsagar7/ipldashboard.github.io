@@ -5,9 +5,9 @@
           <h1 class="md-title">Users</h1>
         </div>
 
-        <md-field md-clearable class="md-toolbar-section-end">
+        <!-- <md-field md-clearable class="md-toolbar-section-end">
           <md-input placeholder="Search by name..." v-model="search" @input="searchOnTable" />
-        </md-field>
+        </md-field> -->
       </md-table-toolbar>
 
       <md-table-empty-state

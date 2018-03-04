@@ -5,11 +5,14 @@ var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
 var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
 var topPerformersPerSeason = require('./frontendData/topPerformersBatsman')
+var orangeCap = require('./frontendData/orangeCap')
+var purpleCap = require('./frontendData/purpleCap')
+var manOfTheSeries = require('./frontendData/manOfTheSeries')
+
 var cool = require('cool-ascii-faces');
 const express = require('express');
 var _ = require('lodash');
 const app = express();
-
 
 const setHeader = function (res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,6 +21,24 @@ const setHeader = function (res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     return res;
 }
+
+app.get('/getOrangePurpleSeries', (req, res) => {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    res.json({
+        orange: orangeCap,
+        purple: purpleCap,
+        series: manOfTheSeries
+    });
+})
 
 app.get('/getBatsmanAggScore', (req, res) => {
 
@@ -29,7 +50,6 @@ app.get('/getBatsmanAggScore', (req, res) => {
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
-
 
     res.json({
         data: batsmanAggScore
@@ -116,6 +136,8 @@ app.get('/getRunSortedBySeason', (req, res) => {
         data: runSortedBySeason
     });
 })
+
+
 
 //Heroku Test
 app.get('/cool', function (request, response) {

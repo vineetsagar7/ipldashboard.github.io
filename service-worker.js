@@ -26,7 +26,8 @@ limitations under the License.
         'https://mighty-garden-54587.herokuapp.com/getBatsmanAggScore',
         'https://mighty-garden-54587.herokuapp.com/getMatchPerformance',
         'https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers',
-        'https://mighty-garden-54587.herokuapp.com/getRunSortedBySeason'
+        'https://mighty-garden-54587.herokuapp.com/getRunSortedBySeason',
+        'https://mighty-garden-54587.herokuapp.com/getOrangePurpleSeries'        
     ];
 
     self.addEventListener('install', function (event) {

@@ -17,25 +17,25 @@ ballbyball['Batsman_Scored'] = ballbyball['Batsman_Scored'].apply(lambda x: int(
 #a)Orange cap, pupple cap and man of the series.
 #highest number run scorer
 
-Season.columns = ['Season_Id', 'Season_Year', 'Orange_Cap_Id', 'Purple_Cap_Id', 'Man_of_the_Series_Id']
-
-frame = [Season, player]
-merged = pd.concat(frame, axis=1, join='inner')
-merged2 = merged[['Season_Year','Player_Id','Player_Name']]
-#print(merged2)
+Season.columns = ['Season_Id', 'Season_Year', 'Player_Id', 'Purple_Cap_Id', 'Man_of_the_Series_Id']
+orangeCap = pd.merge(Season, player)
+merged = orangeCap[['Season_Year','Player_Name']]
+with open('../frontendData/orangeCap.json', 'w') as f:
+    f.write(merged.to_json(orient='table'))
 
 #highest run wicket tacker
 Season.columns = ['Season_Id', 'Season_Year', 'Orange_Cap_Id', 'Player_Id', 'Man_of_the_Series_Id']
-frame = [Season, player]
-merged = pd.concat(frame, axis=1, join='inner')
-merged2 = merged[['Season_Year','Player_Name']]
+purpleCap = pd.merge(Season, player)
+merged = merged[['Season_Year','Player_Name']]
+with open('../frontendData/purpleCap.json', 'w') as f:
+    f.write(merged.to_json(orient='table'))
 
 #man of the series
 Season.columns = ['Season_Id', 'Season_Year', 'Orange_Cap_Id', 'Purple_Cap_Id', 'Player_Id']
-merged = pd.merge( player,Season)
-merged2= merged.groupby(['Season_Id','Season_Year','Player_Id','Player_Name'])
-
-
+manOfTheSeries = pd.merge( player,Season)
+merged= manOfTheSeries[['Season_Id','Player_Name']]
+with open('../frontendData/manOfTheSeries.json', 'w') as f:
+    f.write(merged.to_json(orient='table'))
 
 #Strikers------------------------------------------------------------------------------
 #2: batsmanRunScored. Sorted by max run

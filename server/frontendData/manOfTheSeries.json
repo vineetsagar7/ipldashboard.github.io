@@ -1,0 +1,69 @@
+{
+    "schema": {
+        "fields": [
+            {
+                "name": "index",
+                "type": "integer"
+            },
+            {
+                "name": "Season_Id",
+                "type": "integer"
+            },
+            {
+                "name": "Player_Name",
+                "type": "string"
+            }
+        ],
+        "primaryKey": [
+            "index"
+        ],
+        "pandas_version": "0.20.0"
+    },
+    "data": [
+        {
+            "index": 0,
+            "Season_Id": 9,
+            "Player_Name": "V Kohli"
+        },
+        {
+            "index": 1,
+            "Season_Id": 1,
+            "Player_Name": "SR Watson"
+        },
+        {
+            "index": 2,
+            "Season_Id": 6,
+            "Player_Name": "SR Watson"
+        },
+        {
+            "index": 3,
+            "Season_Id": 2,
+            "Player_Name": "AC Gilchrist"
+        },
+        {
+            "index": 4,
+            "Season_Id": 3,
+            "Player_Name": "SR Tendulkar"
+        },
+        {
+            "index": 5,
+            "Season_Id": 4,
+            "Player_Name": "CH Gayle"
+        },
+        {
+            "index": 6,
+            "Season_Id": 7,
+            "Player_Name": "GJ Maxwell"
+        },
+        {
+            "index": 7,
+            "Season_Id": 5,
+            "Player_Name": "SP Narine"
+        },
+        {
+            "index": 8,
+            "Season_Id": 8,
+            "Player_Name": "AD Russell"
+        }
+    ]
+}
