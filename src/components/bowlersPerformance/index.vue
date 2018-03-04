@@ -43,6 +43,7 @@ export default {
     return {
       DissmisalTypeIndex: [],
       dissmisalTypeData: [],
+      mostWicketTackers: [],
       loading: false
     };
   },
@@ -51,9 +52,7 @@ export default {
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers`)
       .then(response => {
-        // JSON responses are automatically parsed.
-        debugger;
-        this.posts = response.data;
+        _this.mostWicketTackers.push(response.data);
       })
       .catch(e => {
         this.errors.push(e);
@@ -62,13 +61,9 @@ export default {
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getDissmisalType`)
       .then(response => {
-        // JSON responses are automatically parsed.
-        debugger;
-
         _this.loading = true;
         _this.DissmisalTypeIndex.push(response.data.data.index);
         _this.dissmisalTypeData.push(response.data.data.data);
-        console.log(this, dissmisalType);
       })
       .catch(e => {
         this.errors.push(e);

@@ -20,22 +20,36 @@ ballbyball['Batsman_Scored'] = ballbyball['Batsman_Scored'].apply(lambda x: int(
 Season.columns = ['Season_Id', 'Season_Year', 'Player_Id', 'Purple_Cap_Id', 'Man_of_the_Series_Id']
 orangeCap = pd.merge(Season, player)
 merged = orangeCap[['Season_Year','Player_Name']]
-with open('../frontendData/orangeCap.json', 'w') as f:
-    f.write(merged.to_json(orient='table'))
+sortedYearOrange = merged.sort_values(by=['Season_Year'], ascending=[True])
+sortedYearOrange.columns=['Season_Year','Orange_Cap_Id']
+# with open('../frontendData/orangeCap.json', 'w') as f:
+#     f.write(sortedYearOrange.to_json(orient='table'))
 
 #highest run wicket tacker
 Season.columns = ['Season_Id', 'Season_Year', 'Orange_Cap_Id', 'Player_Id', 'Man_of_the_Series_Id']
 purpleCap = pd.merge(Season, player)
-merged = merged[['Season_Year','Player_Name']]
-with open('../frontendData/purpleCap.json', 'w') as f:
-    f.write(merged.to_json(orient='table'))
+merged = purpleCap[['Season_Year','Player_Name']]
+sortedYearPurple = merged.sort_values(by=['Season_Year'], ascending=[True])
+sortedYearPurple.columns=['Season_Year','Purple_Cap_Id']
+# with open('../frontendData/purpleCap.json', 'w') as f:
+#     f.write(sortedYearPurple.to_json(orient='table'))
 
 #man of the series
 Season.columns = ['Season_Id', 'Season_Year', 'Orange_Cap_Id', 'Purple_Cap_Id', 'Player_Id']
 manOfTheSeries = pd.merge( player,Season)
-merged= manOfTheSeries[['Season_Id','Player_Name']]
-with open('../frontendData/manOfTheSeries.json', 'w') as f:
-    f.write(merged.to_json(orient='table'))
+merged= manOfTheSeries[['Season_Year','Player_Name']]
+sortYearManseries = merged.sort_values(by=['Season_Year'], ascending=[True])
+sortYearManseries.columns=['Season_Year','Man_of_the_Series_Id']
+# with open('../frontendData/manOfTheSeries.json', 'w') as f:
+#     f.write(sortYearManseries.to_json(orient='table'))
+
+combineTwo = pd.merge(sortedYearOrange, sortedYearPurple)
+combineThree = pd.merge(combineTwo, sortYearManseries)
+with open('../frontendData/goldenPlayer.json', 'w') as f:
+    f.write(combineThree.to_json(orient='table'))
+
+
+
 
 #Strikers------------------------------------------------------------------------------
 #2: batsmanRunScored. Sorted by max run

@@ -5,9 +5,7 @@ var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
 var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
 var topPerformersPerSeason = require('./frontendData/topPerformersBatsman')
-var orangeCap = require('./frontendData/orangeCap')
-var purpleCap = require('./frontendData/purpleCap')
-var manOfTheSeries = require('./frontendData/manOfTheSeries')
+var goldenPlayer = require('./frontendData/goldenPlayer')
 
 var cool = require('cool-ascii-faces');
 const express = require('express');
@@ -34,9 +32,7 @@ app.get('/getOrangePurpleSeries', (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
-        orange: orangeCap,
-        purple: purpleCap,
-        series: manOfTheSeries
+        data: goldenPlayer.data
     });
 })
 
@@ -137,11 +133,10 @@ app.get('/getRunSortedBySeason', (req, res) => {
     });
 })
 
-
-
 //Heroku Test
 app.get('/cool', function (request, response) {
     response.send(cool());
 });
 
 app.listen(process.env.PORT || 5000)
+console.log('Listening on localhost:5000');

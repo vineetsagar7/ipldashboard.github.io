@@ -20,13 +20,12 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
-import { MdButton, MdContent, MdTabs } from "vue-material/dist/components";
+//import { MdButton, MdContent, MdTabs } from "vue-material/dist/components";
 import VueMaterial from "vue-material";
 import BatsmanPerformance from "./components/batsmanPerformance";
 import bowlersPerformance from "./components/bowlersPerformance";
 import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
-import BootstrapVue from "bootstrap-vue";
 
 
 import "vue-material/dist/vue-material.min.css";
@@ -34,7 +33,6 @@ import "vue-material/dist/theme/default.css";
 
 //TDOD: import only those which are required, to imperove performence, Not using Bootstrap.....
 Vue.use(VueMaterial);
-Vue.use(BootstrapVue);
 
 export default {
   name: "app",
