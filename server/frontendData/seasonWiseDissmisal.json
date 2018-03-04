@@ -1,0 +1,45 @@
+{
+    "columns": [
+        "Dissimal_Type"
+    ],
+    "index": [
+        "bowled",
+        "caught",
+        "caught and bowled",
+        "hit wicket",
+        "lbw",
+        "obstructing the field",
+        "retired hurt",
+        "run out",
+        "stumped"
+    ],
+    "data": [
+        [
+            1028
+        ],
+        [
+            3245
+        ],
+        [
+            148
+        ],
+        [
+            6
+        ],
+        [
+            326
+        ],
+        [
+            1
+        ],
+        [
+            8
+        ],
+        [
+            583
+        ],
+        [
+            187
+        ]
+    ]
+}

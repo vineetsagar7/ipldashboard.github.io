@@ -16,7 +16,7 @@
 
     </div>
     <div class="md-layout-item">
-
+        <pie-example> </pie-example>
     </div>
     <div class="md-layout-item">
 
@@ -26,6 +26,7 @@
 
 <script>
 import axios from "axios";
+import PieExample from "../../charts/PieExample";
 
 export default {
   name: "LayoutHorizontalColumns",
@@ -37,7 +38,18 @@ export default {
       .get(`https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers`)
       .then(response => {
         // JSON responses are automatically parsed.
-        debugger
+        debugger;
+        this.posts = response.data;
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
+
+    axios
+      .get(`https://mighty-garden-54587.herokuapp.com/getDissmisalType`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        debugger;
         this.posts = response.data;
       })
       .catch(e => {

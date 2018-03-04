@@ -77,9 +77,11 @@ with open('../frontendData/mostWisketTackers.json', 'w') as f:
 #Season wise, Dissmisal type
 result = pd.merge(ballbyball, match)
 result1 = result.loc[result['Dissimal_Type'] != ' ', ['Season_Id', 'Dissimal_Type']]
-seasonWiseDissmisal = result1.groupby(['Season_Id', 'Dissimal_Type']).agg({'Dissimal_Type' : 'count'})
+#seasonWiseDissmisal = result1.groupby(['Season_Id', 'Dissimal_Type']).agg({'Dissimal_Type' : 'count'})
+seasonWiseDissmisal = result1.groupby(['Dissimal_Type']).agg({'Dissimal_Type' : 'count'})
+
 with open('../frontendData/seasonWiseDissmisal.json', 'w') as f:
-    f.write(seasonWiseDissmisal.to_json(orient='table'))
+    f.write(seasonWiseDissmisal.to_json(orient='split'))
 
 #4:match played by each team ------------------------------------------------------------------------------
 # #Merge and get the total match played till now.
