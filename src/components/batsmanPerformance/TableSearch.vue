@@ -1,5 +1,5 @@
 <template>
-    <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
+    <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header class="md-width">
       <md-table-toolbar>
         <div class="md-toolbar-section-start">
           <h1 class="md-title">Users</h1>
@@ -16,13 +16,20 @@
         <md-button class="md-primary md-raised" @click="newUser">Create New User</md-button>
       </md-table-empty-state>
 
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ item.id }}</md-table-cell>
-        <md-table-cell md-label="Name" md-sort-by="name">{{ item.name }}</md-table-cell>
-        <md-table-cell md-label="Email" md-sort-by="email">{{ item.email }}</md-table-cell>
-        <md-table-cell md-label="Gender" md-sort-by="gender">{{ item.gender }}</md-table-cell>
-        <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>
-      </md-table-row>
+<!-- TODO:  -->
+
+        <md-table-row slot="md-table-row" v-for="(row, rowIndex) in searched" :key="rowIndex" :md-item="row"> 
+        <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ row.id }}</md-table-cell>
+        <md-table-cell md-label="Name" md-sort-by="name">{{ row.name }}</md-table-cell>
+        <md-table-cell md-label="Runs" md-sort-by="runs">{{ row.runs }}</md-table-cell>
+       </md-table-row> 
+
+      <!-- <md-table-row slot="md-table-row" slot-scope="{ item }">
+        <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ item.id }}s</md-table-cell>
+        <md-table-cell md-label="Name" md-sort-by="name">{{ item.name }}s</md-table-cell>
+        <md-table-cell md-label="Runs" md-sort-by="runs">{{ item.runs }}s</md-table-cell>
+      </md-table-row> -->
+      
     </md-table>
 </template>
 
@@ -48,142 +55,102 @@ export default {
       {
         id: 1,
         name: "Shawna Dubbin",
-        email: "sdubbin0@geocities.com",
-        gender: "Male",
-        title: "Assistant Media Planner"
+        runs: "234"
       },
       {
         id: 2,
         name: "Odette Demageard",
-        email: "odemageard1@spotify.com",
-        gender: "Female",
-        title: "Account Coordinator"
+        runs: "576"
       },
       {
         id: 3,
         name: "Vera Taleworth",
-        email: "vtaleworth2@google.ca",
-        gender: "Male",
-        title: "Community Outreach Specialist"
+        runs: "123"
       },
       {
         id: 4,
         name: "Lonnie Izkovitz",
-        email: "lizkovitz3@youtu.be",
-        gender: "Female",
-        title: "Operator"
+        runs: "321"
       },
       {
         id: 5,
         name: "Thatcher Stave",
-        email: "tstave4@reference.com",
-        gender: "Male",
-        title: "Software Test Engineer III"
+        runs: "543"
       },
       {
         id: 6,
         name: "Karim Chipping",
-        email: "kchipping5@scribd.com",
-        gender: "Female",
-        title: "Safety Technician II"
+        runs: "12"
       },
       {
         id: 7,
         name: "Helge Holyard",
-        email: "hholyard6@howstuffworks.com",
-        gender: "Female",
-        title: "Internal Auditor"
+        runs: "32"
       },
       {
         id: 8,
         name: "Rod Titterton",
-        email: "rtitterton7@nydailynews.com",
-        gender: "Male",
-        title: "Technical Writer"
+        runs: "56"
       },
       {
         id: 9,
         name: "Gawen Applewhite",
-        email: "gapplewhite8@reverbnation.com",
-        gender: "Female",
-        title: "GIS Technical Architect"
+        runs: "12"
       },
       {
         id: 10,
         name: "Nero Mulgrew",
-        email: "nmulgrew9@plala.or.jp",
-        gender: "Female",
-        title: "Staff Scientist"
+        runs: "54"
       },
       {
         id: 11,
         name: "Cybill Rimington",
-        email: "crimingtona@usnews.com",
-        gender: "Female",
-        title: "Assistant Professor"
+        runs: "34"
       },
       {
         id: 12,
         name: "Maureene Eggleson",
-        email: "megglesonb@elpais.com",
-        gender: "Male",
-        title: "Recruiting Manager"
+        runs: "87"
       },
       {
         id: 13,
         name: "Cortney Caulket",
-        email: "ccaulketc@cbsnews.com",
-        gender: "Male",
-        title: "Safety Technician IV"
+        runs: "86"
       },
       {
         id: 14,
         name: "Selig Swynfen",
-        email: "sswynfend@cpanel.net",
-        gender: "Female",
-        title: "Environmental Specialist"
+        runs: "23"
       },
       {
         id: 15,
         name: "Ingar Raggles",
-        email: "iragglese@cbc.ca",
-        gender: "Female",
-        title: "VP Sales"
+        runs: "76"
       },
       {
         id: 16,
         name: "Karmen Mines",
-        email: "kminesf@topsy.com",
-        gender: "Male",
-        title: "Administrative Officer"
+        runs: "923"
       },
       {
         id: 17,
         name: "Salome Judron",
-        email: "sjudrong@jigsy.com",
-        gender: "Male",
-        title: "Staff Scientist"
+        runs: "123"
       },
       {
         id: 18,
         name: "Clarinda Marieton",
-        email: "cmarietonh@theatlantic.com",
-        gender: "Male",
-        title: "Paralegal"
+        runs: "4312"
       },
       {
         id: 19,
         name: "Paxon Lotterington",
-        email: "plotteringtoni@netvibes.com",
-        gender: "Female",
-        title: "Marketing Assistant"
+        runs: "123123"
       },
       {
         id: 20,
         name: "Maura Thoms",
-        email: "mthomsj@webeden.co.uk",
-        gender: "Male",
-        title: "Actuary"
+        runs: "0"
       }
     ]
   }),
@@ -202,7 +169,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.md-width {
+  width: 440px;
+  height: 400px;
+}
 .md-field {
-  max-width: 300px;
+  max-width: 150px;
 }
 </style>
