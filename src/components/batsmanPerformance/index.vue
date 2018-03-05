@@ -1,11 +1,7 @@
 <template>
-  
   <div>
-
       <table-search :batsManPerformance="topbatsMan[0].data.data"> </table-search>  
-
   </div>
- 
 </template>
 
 <script>

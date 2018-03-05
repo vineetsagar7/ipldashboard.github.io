@@ -7,12 +7,19 @@
         <span class="md-title">  {{ Title }}</span>
       </md-app-toolbar>
       <md-app-content>
+       <session-wise-performance> </session-wise-performance>
+       <teamMatch-performa-graph> </teamMatch-performa-graph>
+       <bowlers-performance></bowlers-performance>
 
-        <session-wise-performance> </session-wise-performance>
+        <!-- <div class="md-layout md-gutter md-alignment-center">
+          <div class="md-layout-item md-large-size-100"><teamMatch-performa-graph> </teamMatch-performa-graph></div>
+          <div class="md-layout-item md-large-size-100"><bowlers-performance></bowlers-performance></div>
+        </div> -->
+
         <team-match-performance> </team-match-performance> 
-        <bowlers-performance></bowlers-performance>  
+        <topWicket-tackers></topWicket-tackers>
         <batsman-performance></batsman-performance>
-    
+      
       </md-app-content>
     </md-app>
   </div>
@@ -30,6 +37,8 @@ import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
 import TeamMatchPerformance from "./components/teamMatchPerform";
 import VueGoodTable from "vue-good-table";
+import TopWicketTackers from "./components/topWicketTackers";
+import TeamMatchPerformaGraph from "./components/teamMatchPerformGraph";
 
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
@@ -45,7 +54,9 @@ export default {
     bowlersPerformance,
     sessionWisePerformance,
     TableSearch,
-    TeamMatchPerformance
+    TeamMatchPerformance,
+    TopWicketTackers,
+    TeamMatchPerformaGraph
   },
   data() {
     return {
@@ -56,14 +67,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~vue-material/src/components/MdAnimation/variables.scss";
 .md-app {
   max-height: 100%;
   border: 1px solid rgba(#000, 0.12);
 }
+.md-layout-item {
+  height: 400px;
+  min-width: 300px;
 
-// Demo purposes only
-.md-drawer {
-  width: 230px;
-  max-width: calc(100vw - 125px);
+  &:nth-child(1) {
+    background: md-get-palette-color(grey, 300);
+  }
+
+  &:nth-child(2) {
+    background: md-get-palette-color(grey, 400);
+  }
 }
 </style>

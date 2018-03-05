@@ -10,41 +10,28 @@
               </div>
           </md-card-content>
       </md-card>
-    <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>    
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import PieExample from "../../charts/PieExample";
-import TableSearch from "./TableSearch";
 
 export default {
   name: "LayoutHorizontalColumns",
   components: {
     PieExample,
-    TableSearch,
     axios
   },
   data() {
     return {
       DissmisalTypeIndex: [],
       dissmisalTypeData: [],
-      mostWicketTackers: [],
       loading: false
     };
   },
   created() {
     var _this = this;
-    axios
-      .get(`https://mighty-garden-54587.herokuapp.com/getMmostWisketTackers`)
-      .then(response => {
-        _this.mostWicketTackers.push(response.data);
-      })
-      .catch(e => {
-        this.errors.push(e);
-      });
-
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getDissmisalType`)
       .then(response => {
