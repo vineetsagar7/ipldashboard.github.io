@@ -24,6 +24,7 @@ limitations under the License.
     "index.html",
     "style/main.css",
     "dist/build.js",
+    "manifest.json",
     "https://mighty-garden-54587.herokuapp.com/getBatsmanAggScore",
     "https://mighty-garden-54587.herokuapp.com/getDissmisalType",
     "https://mighty-garden-54587.herokuapp.com/getOrangePurpleSeries",
