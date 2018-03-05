@@ -1,6 +1,6 @@
 <template>
  <md-tabs md-sync-route md-alignment="centered">
-    <div v-if="loading">
+
       <template v-for="x in goldenPlayer[0].data">
         <md-tab class="md-tab-scope" :id="'mdtab'+x.Season_Year" :md-label="x.Season_Year" :key="'mdtab'+x.index">
 
@@ -42,7 +42,7 @@
     </div>
     </md-tab>
        </template>
-           </div>
+        
     </md-tabs>
 
 </template>
