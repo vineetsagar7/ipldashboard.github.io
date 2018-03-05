@@ -1,6 +1,13 @@
 <template>
   <div>
+    <md-card>
+        <md-card-header>
+          <md-subheader class="md-primary">Team Performance</md-subheader>
+        </md-card-header>
+          <md-card-content>
       <table-search :batsManPerformance="topbatsMan[0].data.data"> </table-search>  
+      </md-card-content>
+      </md-card> 
   </div>
 </template>
 

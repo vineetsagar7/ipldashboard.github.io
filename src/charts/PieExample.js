@@ -7,8 +7,6 @@ export default {
     data: Array
   },
   mounted() {
-    debugger
-    console.log("data----------:" + this.Index)
     this.renderChart({
       labels: this.Index[0],
       datasets: [
@@ -18,11 +16,11 @@ export default {
             '#E46651',
             '#00D8FF',
             '#DD1B16',
-            '#41B883',
-            '#E46651',
-            '#00D8FF',
-            '#DD1B16',
-            '#41B883'
+            '#b88440',
+            '#405ab8',
+            '#b89a40',
+            '#ac40b8',
+            '#b89a40'
           ],
           data: this.data[0]
         }

@@ -1,6 +1,14 @@
 <template>
-        <div>
-          <div class="md-layout-item">
+  <div>
+<md-card>
+      <md-card-header>
+       <md-subheader class="md-primary">Team wise performance</md-subheader>
+        </md-card-header>
+        <md-card-content>
+
+        <md-progress-spinner v-if="!loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner>
+        <div v-if="loading">
+         <div class="md-layout-item" style="width: 250px;">
             <md-field>
                 <md-select v-model="selectedTeamName" name="TeamName" id="country" placeholder="Country">
                     <md-option value="Chennai Super Kings">Chennai Super Kings</md-option>
@@ -26,7 +34,11 @@
          <line-example :options="seasonWiseGraph.columns" :data="seasonWiseGraph.rows"></line-example>
         </div>
       </div>
-      </div>
+              </div>
+
+       </md-card-content>
+      </md-card>
+</div>
 </template>
 
 

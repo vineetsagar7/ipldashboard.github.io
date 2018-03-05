@@ -1,7 +1,7 @@
 <template>
   <div class="table-width">
     <vue-good-table
-      title="Team Performance"
+      title=""
       :columns="columns"
       :rows="batsManPerformance"
       :paginate="true"
@@ -33,9 +33,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.table-width {
-  width: 350px;
-}
-</style>

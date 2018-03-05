@@ -1,7 +1,7 @@
 <template>
   <div class="table-width">
     <vue-good-table
-      title="Top 20 wicktes taker"
+      title=""
       :columns="columns"
       :rows="boelerPerformance"
       :paginate="true"
@@ -43,9 +43,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.table-width {
-  width: 550px;
-}
-</style>

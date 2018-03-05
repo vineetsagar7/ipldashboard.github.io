@@ -1,6 +1,13 @@
 <template>
     <div>
-      <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>    
+      <md-card>
+        <md-card-header>
+          <md-subheader class="md-primary">Top wicktes taker</md-subheader>
+        </md-card-header>
+          <md-card-content>
+              <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>   
+          </md-card-content>
+      </md-card> 
   </div>
 </template>
 

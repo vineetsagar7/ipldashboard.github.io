@@ -1,6 +1,13 @@
 <template>
     <div>
-      <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+      <md-card>
+        <md-card-header>
+            <md-subheader class="md-primary">Dissmisal Type</md-subheader>
+        </md-card-header>
+            <md-card-content>
+              <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+            </md-card-content>
+      </md-card>
     </div>
 </template>
 <script>

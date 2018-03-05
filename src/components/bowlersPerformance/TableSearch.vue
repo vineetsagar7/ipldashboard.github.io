@@ -43,9 +43,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.table-width {
-  width: 550px;
-}
-</style>

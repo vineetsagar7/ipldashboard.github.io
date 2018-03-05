@@ -2,9 +2,10 @@
       <div>
         <md-card>
           <md-card-header>
-              <div class="md-title">Dissmisal Type in all IPL matches</div>
+            <md-subheader class="md-primary">Dissmisal Type</md-subheader>
           </md-card-header>
           <md-card-content>
+             <md-progress-spinner v-if="!loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner>
               <div v-if="loading">
                   <pie-example :Index="DissmisalTypeIndex" :data="dissmisalTypeData"> </pie-example>
               </div>

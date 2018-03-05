@@ -1,16 +1,20 @@
 <template>
 
-    <md-tabs md-sync-route>
+    <md-tabs md-sync-route md-alignment="centered">
 
  <template v-for="x in goldenPlayer[0].data">
   <md-tab class="md-tab-scope" :id="'mdtab'+x.Season_Year" :md-label="x.Season_Year" :key="'mdtab'+x.index">
+    
+    <div class="text-md-center centerd">
+
+
     <md-card class="md-primary md-card-scope" md-with-hover>
            <md-ripple>
         <md-card-header>
           <div class="md-title">Man Of The Series</div>
         </md-card-header>
         <md-card-content>
-          {{x.Man_of_the_Series_Id}}
+          {{x.Man_of_the_Series_Id}}ƒ
         </md-card-content>
              </md-ripple>
     </md-card>
@@ -36,6 +40,8 @@
         </md-card-content>
       </md-ripple>
     </md-card>
+
+    </div>
     </md-tab>
        </template>
     </md-tabs>
@@ -80,5 +86,11 @@ export default {
 //TODO: Use Media query to solve this issue
 .md-tab-scope {
   min-height: 150px;
+}
+
+.centerd {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
 }
 </style>

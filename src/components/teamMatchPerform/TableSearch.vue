@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-good-table
-      title="Team Performance"
+      title=""
       :columns="columns"
       :rows="teamPerformance"
       :paginate="true"
