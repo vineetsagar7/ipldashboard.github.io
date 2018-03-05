@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="table-width">
     <vue-good-table
       title="Top 20 wicktes taker"
       :columns="columns"
       :rows="boelerPerformance"
       :paginate="true"
-      :lineNumbers="true"/>
+      :lineNumbers="true"
+      />
   </div>
 </template>
 
@@ -30,11 +31,11 @@ export default {
         },
         {
           label: "Total Wickets",
-          field: "Dissimal_Type",
+          field: "Dissimal_Type"
         },
         {
           label: "Country",
-          field: "Country",
+          field: "Country"
         }
       ],
       rows: this.boelerPerformance
@@ -42,3 +43,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.table-width {
+  width: 550px;
+}
+</style>

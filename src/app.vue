@@ -7,11 +7,12 @@
         <span class="md-title">  {{ Title }}</span>
       </md-app-toolbar>
       <md-app-content>
-        <!-- <table-search></table-search> -->
+
         <session-wise-performance> </session-wise-performance>
-        <batsman-performance></batsman-performance>
-        <bowlers-performance></bowlers-performance>  
         <team-match-performance> </team-match-performance> 
+        <bowlers-performance></bowlers-performance>  
+        <batsman-performance></batsman-performance>
+    
       </md-app-content>
     </md-app>
   </div>
@@ -27,8 +28,8 @@ import BatsmanPerformance from "./components/batsmanPerformance";
 import bowlersPerformance from "./components/bowlersPerformance";
 import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
-import TeamMatchPerformance from './components/teamMatchPerform'
-import VueGoodTable from 'vue-good-table';
+import TeamMatchPerformance from "./components/teamMatchPerform";
+import VueGoodTable from "vue-good-table";
 
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";

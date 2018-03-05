@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-width">
     <vue-good-table
       title="Team Performance"
       :columns="columns"
@@ -20,7 +20,8 @@ export default {
       columns: [
         {
           label: "Player Name",
-          field: "Player_Name"
+          field: "Player_Name",
+          filterable: true
         },
         {
           label: "Run Scored",
@@ -32,3 +33,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.table-width {
+  width: 350px;
+}
+</style>

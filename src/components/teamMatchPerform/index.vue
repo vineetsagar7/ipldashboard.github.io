@@ -1,7 +1,6 @@
 <template>
         <div>
-        <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
-      <div class="md-layout-item">
+<div class="md-layout-item">
             <md-field>
                 <md-select v-model="selectedTeamName" name="TeamName" id="country" placeholder="Country">
                     <md-option value="Chennai Super Kings">Chennai Super Kings</md-option>
@@ -25,10 +24,13 @@
       <div class="col" :v-model="seasonWiseGraph">
         <div class="Chart">
          <h1 style="text-align:center;">{{selectedTeamName}}</h1>
-         <line-example :col="seasonWiseGraph.columns" :row="seasonWiseGraph.rows"></line-example>
-         {{seasonWiseGraph}}: Noto: line Chartjs not updating
+         <line-example :options="seasonWiseGraph.columns" :data="seasonWiseGraph.rows"></line-example>
         </div>
       </div>
+
+
+        <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+      
       </div>
 
 

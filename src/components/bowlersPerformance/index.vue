@@ -1,19 +1,16 @@
 <template>
-<div>
-  <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>  
-  
-   <md-card>
-      <md-card-header>
-        <div class="md-title">Dissmisal Type in all IPL matches</div>
-      </md-card-header>
-      <md-card-content>
-        {{dissmisalTypeData}}
-        {{DissmisalTypeIndex}}
-         <div v-if="loading">
-          <pie-example :Index="DissmisalTypeIndex" :data="dissmisalTypeData"> </pie-example>
-        </div>
-         </md-card-content>
-    </md-card>
+      <div>
+        <md-card>
+          <md-card-header>
+              <div class="md-title">Dissmisal Type in all IPL matches</div>
+          </md-card-header>
+          <md-card-content>
+              <div v-if="loading">
+                  <pie-example :Index="DissmisalTypeIndex" :data="dissmisalTypeData"> </pie-example>
+              </div>
+          </md-card-content>
+      </md-card>
+    <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>    
   </div>
 </template>
 
@@ -61,22 +58,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "~vue-material/src/components/MdAnimation/variables.scss";
-
-.md-layout-item {
-  height: 200px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  transition: 0.3s $md-transition-stand-timing;
-
-  &:after {
-    width: 100%;
-    height: 100%;
-    display: block;
-    background: md-get-palette-color(purple, 200);
-    content: " ";
-  }
-}
-</style>
