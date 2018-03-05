@@ -12,7 +12,7 @@
                 <div class="md-title">Man Of The Series</div>
               </md-card-header>
               <md-card-content>
-                {{x.Man_of_the_Series_Id}}ƒ
+                {{x.Man_of_the_Series_Id}}
               </md-card-content>
                   </md-ripple>
           </md-card>
