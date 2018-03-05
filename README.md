@@ -4,7 +4,7 @@
 
 1. VuesJs: Used to create the SPA.
 2. vue-charts Js
-3. Material-ui: give the material look and make the contetn responsive
+3. Material-ui: Give the material look and make the contetn responsive
 4. Nodejs: used to host the app over Heroku and serve the content.
 5. webpack: used to bundle the app.
 

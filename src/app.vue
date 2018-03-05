@@ -7,18 +7,29 @@
         <span class="md-title">  {{ Title }}</span>
       </md-app-toolbar>
       <md-app-content>
-       <session-wise-performance> </session-wise-performance>
+        <div>
+            <session-wise-performance> </session-wise-performance>
+       </div>
+         <div>
        <teamMatch-performa-graph> </teamMatch-performa-graph>
+            </div>
+         <div>
        <bowlers-performance></bowlers-performance>
+            </div>
 
         <!-- <div class="md-layout md-gutter md-alignment-center">
           <div class="md-layout-item md-large-size-100"><teamMatch-performa-graph> </teamMatch-performa-graph></div>
           <div class="md-layout-item md-large-size-100"><bowlers-performance></bowlers-performance></div>
         </div> -->
-
+ <div>
         <team-match-performance> </team-match-performance> 
+             </div>
+              <div>
         <topWicket-tackers></topWicket-tackers>
+         <div>
+             </div>
         <batsman-performance></batsman-performance>
+             </div>
       
       </md-app-content>
     </md-app>
@@ -83,5 +94,8 @@ export default {
   &:nth-child(2) {
     background: md-get-palette-color(grey, 400);
   }
+}
+.margin-top {
+  margin-bottom: 20px;
 }
 </style>
