@@ -1,21 +1,8 @@
 <template>
-
-   <div class="md-layout md-gutter md-alignment-center">
-     <div class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
-
-      <md-card>
-      <md-card-header>
-        <div class="md-title">Most Wickets Tacker:</div>
-      </md-card-header>
-      <md-card-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-      </md-card-content>
-    </md-card>
-    </div>
-
-   <div class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
-
-      <md-card>
+<div>
+  <table-search :data="mostWicketTackers[0].data.data" > </table-search>  
+  
+   <md-card>
       <md-card-header>
         <div class="md-title">Dissmisal Type in all IPL matches</div>
       </md-card-header>
@@ -25,18 +12,19 @@
         </div>
          </md-card-content>
     </md-card>
-    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import PieExample from "../../charts/PieExample";
+import TableSearch from "./TableSearch";
 
 export default {
   name: "LayoutHorizontalColumns",
   components: {
     PieExample,
+    TableSearch,
     axios
   },
   data() {

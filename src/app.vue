@@ -10,7 +10,8 @@
         <!-- <table-search></table-search> -->
         <session-wise-performance> </session-wise-performance>
         <batsman-performance></batsman-performance>
-        <bowlers-performance></bowlers-performance>      
+        <bowlers-performance></bowlers-performance>  
+        <team-match-performance> </team-match-performance> 
       </md-app-content>
     </md-app>
   </div>
@@ -26,6 +27,7 @@ import BatsmanPerformance from "./components/batsmanPerformance";
 import bowlersPerformance from "./components/bowlersPerformance";
 import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
+import TeamMatchPerformance from './components/teamMatchPerform'
 
 
 import "vue-material/dist/vue-material.min.css";
@@ -40,7 +42,8 @@ export default {
     BatsmanPerformance,
     bowlersPerformance,
     sessionWisePerformance,
-    TableSearch
+    TableSearch,
+    TeamMatchPerformance
   },
   data() {
     return {

@@ -3,7 +3,7 @@
     <md-tabs md-sync-route>
 
  <template v-for="x in goldenPlayer[0].data">
-  <md-tab class="md-tab-scope" :id="x.Season_Year" :md-label="x.Season_Year" :key="x.index">
+  <md-tab class="md-tab-scope" :id="'mdtab'+x.Season_Year" :md-label="x.Season_Year" :key="'mdtab'+x.index">
     <md-card class="md-primary md-card-scope" md-with-hover>
            <md-ripple>
         <md-card-header>
@@ -80,4 +80,5 @@ export default {
 //TODO: Use Media query to solve this issue
 .md-tab-scope {
   min-height: 150px;
-}</style>
+}
+</style>

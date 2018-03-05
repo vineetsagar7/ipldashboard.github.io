@@ -9,6 +9,7 @@ ballbyball = pd.read_csv('../data-set-conversion/csv/Ball_by_Ball.csv')
 match = pd.read_csv('../data-set-conversion/csv/Match.csv')
 Season = pd.read_csv('../data-set-conversion/csv/Season.csv')
 player = pd.read_csv('../data-set-conversion/csv/Player.csv')
+Team = pd.read_csv('../data-set-conversion/csv/Team.csv')
 
 ballbyball['Batsman_Scored'] = ballbyball['Batsman_Scored'].apply(lambda x: int(x) if x.isnumeric() else 0)
 
@@ -100,6 +101,7 @@ with open('../frontendData/mostWisketTackers.json', 'w') as f:
     f.write(getOnly.to_json(orient='table'))
 
 
+
 #Season wise, Dissmisal type
 result = pd.merge(ballbyball, match)
 result1 = result.loc[result['Dissimal_Type'] != ' ', ['Season_Id', 'Dissimal_Type']]
@@ -114,15 +116,33 @@ with open('../frontendData/seasonWiseDissmisal.json', 'w') as f:
 #a). Total match played till now.[#ui-box] | b) SeasonWise match played by team.[#ui-box]
 #c). 
 #MatchPlayed = match.groupby(['Season_Id','Match_Id'])['Venue_Name'].count().reset_index()
-TotalNumberOfMatchesTeamA = match.groupby(['Season_Id','Team_Name_Id'])['Toss_Decision'].count().reset_index()
-TotalNumberOfMatchesTeamB = match.groupby(['Season_Id','Opponent_Team_Id'])['Toss_Decision'].count().reset_index()
+TotalNumberOfMatchesTeamA = match.groupby(['Season_Id','Team_Name_Id'])['Match_Id'].count().reset_index()
+TotalNumberOfMatchesTeamA.columns = ['Season_Id','Team_Name_Id','Match_IdTeamA']
+TotalNumberOfMatchesTeamB = match.groupby(['Season_Id','Opponent_Team_Id'])['Match_Id'].count().reset_index()
+TotalNumberOfMatchesTeamB.columns = ['Season_Id','Team_Name_Id','Match_IdTeamB']
+merged = pd.merge(TotalNumberOfMatchesTeamA,TotalNumberOfMatchesTeamB)
+merged['totalMatchedPlayed'] = merged['Match_IdTeamA'] + merged['Match_IdTeamB']
+#filterMerge = 
+filterMerged = merged[['Season_Id','Team_Name_Id','totalMatchedPlayed']]
+filterMerged.columns=['Season_Id','Team_Id','totalMatchedPlayed']
+mergewithteam = pd.merge(filterMerged, Team)
+filterWithTeam = mergewithteam[['Season_Id','Team_Name','totalMatchedPlayed']]
+groupbyTotalMatch = filterWithTeam.groupby(['Season_Id','Team_Name'])['totalMatchedPlayed'].sum().reset_index()
+
 
 #Macthes Winner by IPL seasion.. 
 #TODO: Match_Winner_Id coloumn comming two times...
 matchPerformance = match.groupby(['Season_Id','Match_Winner_Id'])['IS_Result'].sum().reset_index()
-with open('../frontendData/matchPerformance.json', 'w') as f:
-    f.write(matchPerformance.to_json(orient='table'))
+matchPerformance.columns = ['Season_Id', 'Team_Id', 'won']
+mergeWithTeam = pd.merge(matchPerformance,Team)
+filterWithTeam = mergeWithTeam.groupby(['Season_Id','Team_Name', 'won'])['Team_Id'].count().reset_index()
 
+mergeTotalWin = pd.merge(groupbyTotalMatch,filterWithTeam)
+mergeTotalWin['loss'] = mergeTotalWin['totalMatchedPlayed'] - mergeTotalWin['won']
+IPLPerTeamPerformance = mergeTotalWin[['Season_Id','Team_Name', 'totalMatchedPlayed', 'won', 'loss']]
+
+with open('../frontendData/teamPerMatchPerform.json', 'w') as f:
+    f.write(IPLPerTeamPerformance.to_json(orient='table'))
 
 #orient could be any of the below
 #The format of the JSON string

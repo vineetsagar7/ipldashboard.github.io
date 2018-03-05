@@ -1,6 +1,6 @@
 'use strict';
 var batsmanAggScore = require('./frontendData/batsmanAggScore.json')
-var matchPerformance = require('./frontendData/matchPerformance')
+var teamPerMatchPerform = require('./frontendData/teamPerMatchPerform')
 var mostWisketTackers = require('./frontendData/mostWisketTackers')
 var runSortedBySeason = require('./frontendData/runSortedBySeason')
 var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
@@ -21,16 +21,10 @@ const setHeader = function (res) {
 }
 
 app.get('/getOrangePurpleSeries', (req, res) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
-
     res.json({
         data: goldenPlayer.data
     });
@@ -39,12 +33,8 @@ app.get('/getOrangePurpleSeries', (req, res) => {
 app.get('/getBatsmanAggScore', (req, res) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
@@ -55,28 +45,19 @@ app.get('/getBatsmanAggScore', (req, res) => {
 app.get('/getMatchPerformance', (req, res) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
-        data: matchPerformance
+        data: teamPerMatchPerform
     });
 })
 
 app.get('/getMmostWisketTackers', (req, res) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.json({
         data: mostWisketTackers
@@ -84,14 +65,9 @@ app.get('/getMmostWisketTackers', (req, res) => {
 })
 
 app.get('/getDissmisalType', (req, res) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
@@ -100,14 +76,9 @@ app.get('/getDissmisalType', (req, res) => {
 })
 
 app.get('/getTopPerformersPerSeason', (req, res) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     res.json({
@@ -117,14 +88,9 @@ app.get('/getTopPerformersPerSeason', (req, res) => {
 
 
 app.get('/getRunSortedBySeason', (req, res) => {
-
     res.setHeader('Access-Control-Allow-Origin', '*');
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
 
