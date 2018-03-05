@@ -13,11 +13,12 @@
 # Bonus points
  - Created using Vuejs
  - load time Optimisation: Pandas data manipulation and analysis framework is used to optimized the load time.
- - Responsive: PWA responsive design + Material Ui
+ - Responsive: PWA responsive design + Material Ui.(#bugs are there)
  - Progressive Web App:
     - Manifest file: added icons, background color and theme color.
     - Add to home screen
     - Servie worker to fetch the incomming data from server
+    - Not all PWA feature are implemented
  - Offline Usable: Cached data used to run the app when no internet is available.
 
 IPL Dashboard: https://vineetsagar7.github.io/ipldashboard.github.io/
