@@ -18,6 +18,8 @@ limitations under the License.
 
     var CACHE_NAME = 'static-cache';
 
+
+    //one time cache to demostrate PWA feature,
     var urlsToCache = [
         '.',
         'index.html',
