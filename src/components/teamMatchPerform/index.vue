@@ -5,7 +5,9 @@
             <md-subheader class="md-primary">Best IPL Team till date</md-subheader>
         </md-card-header>
             <md-card-content>
-              <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+              <div v-if="loading">
+                 <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+              </div>
             </md-card-content>
       </md-card>
     </div>
@@ -21,7 +23,8 @@ export default {
   },
   data() {
     return {
-      teamPerformance: []
+      teamPerformance: [],
+      loading: false
     };
   },
   computed: {
@@ -34,9 +37,9 @@ export default {
   created() {
     var _this = this;
     axios
-      //getMatchPerformance
       .get(`https://mighty-garden-54587.herokuapp.com/getMatchPerformance`)
       .then(response => {
+        _this.loading = true;
         _this.teamPerformance.push(response.data);
       })
       .catch(e => {

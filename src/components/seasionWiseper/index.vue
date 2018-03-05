@@ -1,50 +1,50 @@
 <template>
+ <md-tabs md-sync-route md-alignment="centered">
+    <div v-if="loading">
+      <template v-for="x in goldenPlayer[0].data">
+        <md-tab class="md-tab-scope" :id="'mdtab'+x.Season_Year" :md-label="x.Season_Year" :key="'mdtab'+x.index">
 
-    <md-tabs md-sync-route md-alignment="centered">
+          <div class="text-md-center centerd">
 
- <template v-for="x in goldenPlayer[0].data">
-  <md-tab class="md-tab-scope" :id="'mdtab'+x.Season_Year" :md-label="x.Season_Year" :key="'mdtab'+x.index">
-    
-    <div class="text-md-center centerd">
+          <md-card class="md-primary md-card-scope" md-with-hover>
+                <md-ripple>
+              <md-card-header>
+                <div class="md-title">Man Of The Series</div>
+              </md-card-header>
+              <md-card-content>
+                {{x.Man_of_the_Series_Id}}ƒ
+              </md-card-content>
+                  </md-ripple>
+          </md-card>
 
+          <md-card class="md-primary md-card-scope" md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <div class="md-title">Orange Cap</div>
+              </md-card-header>
+              <md-card-content>
+                {{x.Orange_Cap_Id}}
+              </md-card-content>
+            </md-ripple>
+          </md-card>
 
-    <md-card class="md-primary md-card-scope" md-with-hover>
-           <md-ripple>
-        <md-card-header>
-          <div class="md-title">Man Of The Series</div>
-        </md-card-header>
-        <md-card-content>
-          {{x.Man_of_the_Series_Id}}ƒ
-        </md-card-content>
-             </md-ripple>
-    </md-card>
-
-    <md-card class="md-primary md-card-scope" md-with-hover>
-      <md-ripple>
-        <md-card-header>
-          <div class="md-title">Orange Cap</div>
-        </md-card-header>
-        <md-card-content>
-          {{x.Orange_Cap_Id}}
-        </md-card-content>
-      </md-ripple>
-    </md-card>
-
-    <md-card class="md-primary md-card-scope" md-with-hover>
-      <md-ripple>
-        <md-card-header>
-          <div class="md-title">Purple Cap</div>
-        </md-card-header>
-        <md-card-content>
-         {{x.Purple_Cap_Id}}
-        </md-card-content>
-      </md-ripple>
-    </md-card>
+          <md-card class="md-primary md-card-scope" md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <div class="md-title">Purple Cap</div>
+              </md-card-header>
+              <md-card-content>
+              {{x.Purple_Cap_Id}}
+              </md-card-content>
+            </md-ripple>
+          </md-card>
 
     </div>
     </md-tab>
        </template>
+           </div>
     </md-tabs>
+
 </template>
 
 <script>
@@ -56,7 +56,8 @@ export default {
   },
   data() {
     return {
-      goldenPlayer: []
+      goldenPlayer: [],
+      loading: false
     };
   },
   created() {
@@ -64,6 +65,7 @@ export default {
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getOrangePurpleSeries`)
       .then(response => {
+        _this.loading = true;
         _this.goldenPlayer.push(response.data);
       })
       .catch(e => {

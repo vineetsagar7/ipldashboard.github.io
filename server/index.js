@@ -89,30 +89,6 @@ app.get('/getDissmisalType', (req, res) => {
     });
 })
 
-app.get('/getTopPerformersPerSeason', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    res.json({
-        data: topPerformersPerSeason
-    });
-})
-
-
-app.get('/getRunSortedBySeason', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-
-    res.json({
-        data: runSortedBySeason
-    });
-})
-
 //Heroku Test
 app.get('/cool', function (request, response) {
     response.send(cool());

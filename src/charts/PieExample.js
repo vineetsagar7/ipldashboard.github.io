@@ -20,7 +20,7 @@ export default {
             '#405ab8',
             '#b89a40',
             '#ac40b8',
-            '#b89a40'
+            '#b82a40'
           ],
           data: this.data[0]
         }

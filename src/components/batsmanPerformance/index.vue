@@ -5,12 +5,14 @@
           <md-subheader class="md-primary">Top 30 IPL Leading Run Scorrer Batsman</md-subheader>
         </md-card-header>
           <md-card-content>
-      <table-search :batsManPerformance="topbatsMan[0].data.data"> </table-search>  
+            <md-progress-spinner v-if="!loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner>
+            <div v-if="loading">
+               <table-search :batsManPerformance="topbatsMan[0].data.data"> </table-search>  
+            </div>
       </md-card-content>
       </md-card> 
   </div>
 </template>
-
 <script>
 import axios from "axios";
 import TableSearch from "./TableSearch";
@@ -24,7 +26,8 @@ export default {
   data() {
     return {
       topPerformersPerseason: [],
-      topbatsMan: []
+      topbatsMan: [],
+      loading: false
     };
   },
   created() {
@@ -32,21 +35,8 @@ export default {
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getBatsmanAggScore`)
       .then(response => {
-        // JSON responses are automatically parsed.
+        _this.loading = true
         _this.topbatsMan.push(response.data);
-      })
-      .catch(e => {
-        this.errors.push(e);
-      });
-
-    //filtering needs to be done
-    axios
-      .get(
-        `https://mighty-garden-54587.herokuapp.com/getTopPerformersPerSeason`
-      )
-      .then(response => {
-        // JSON responses are automatically parsed.
-        _this.topPerformersPerseason.push(response.data);
       })
       .catch(e => {
         this.errors.push(e);
