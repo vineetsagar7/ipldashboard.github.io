@@ -2,7 +2,7 @@
   <div>
 <md-card>
       <md-card-header>
-       <md-subheader class="md-primary">Team wise performance</md-subheader>
+       <md-subheader class="md-primary">Team performance by season</md-subheader>
         </md-card-header>
         <md-card-content>
 

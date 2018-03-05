@@ -2,7 +2,7 @@
     <div>
       <md-card>
         <md-card-header>
-            <md-subheader class="md-primary">Dissmisal Type</md-subheader>
+            <md-subheader class="md-primary">Best IPL Team till date</md-subheader>
         </md-card-header>
             <md-card-content>
               <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  

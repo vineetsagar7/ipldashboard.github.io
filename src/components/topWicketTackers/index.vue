@@ -2,7 +2,7 @@
     <div>
       <md-card>
         <md-card-header>
-          <md-subheader class="md-primary">Top wicktes taker</md-subheader>
+          <md-subheader class="md-primary">Top 20 Leading Wicket Takers Bowlers </md-subheader>
         </md-card-header>
           <md-card-content>
               <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>   

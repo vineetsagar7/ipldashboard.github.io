@@ -7,29 +7,29 @@
         <span class="md-title">  {{ Title }}</span>
       </md-app-toolbar>
       <md-app-content>
-        <div>
-            <session-wise-performance> </session-wise-performance>
+        <div class="marginbottom">
+          <session-wise-performance> </session-wise-performance>
        </div>
-         <div>
-       <teamMatch-performa-graph> </teamMatch-performa-graph>
-            </div>
-         <div>
-       <bowlers-performance></bowlers-performance>
-            </div>
+        <div class="marginbottom"> 
+          <teamMatch-performa-graph> </teamMatch-performa-graph>
+        </div>
+        <div class="marginbottom">
+          <bowlers-performance></bowlers-performance>
+        </div>
 
         <!-- <div class="md-layout md-gutter md-alignment-center">
           <div class="md-layout-item md-large-size-100"><teamMatch-performa-graph> </teamMatch-performa-graph></div>
           <div class="md-layout-item md-large-size-100"><bowlers-performance></bowlers-performance></div>
         </div> -->
- <div>
-        <team-match-performance> </team-match-performance> 
-             </div>
-              <div>
-        <topWicket-tackers></topWicket-tackers>
-         <div>
-             </div>
-        <batsman-performance></batsman-performance>
-             </div>
+        <div class="marginbottom">
+          <team-match-performance> </team-match-performance> 
+        </div>
+        <div class="marginbottom">
+          <topWicket-tackers></topWicket-tackers>
+        </div>
+        <div class="marginbottom">
+          <batsman-performance></batsman-performance>
+        </div>
       
       </md-app-content>
     </md-app>
@@ -95,7 +95,7 @@ export default {
     background: md-get-palette-color(grey, 400);
   }
 }
-.margin-top {
-  margin-bottom: 20px;
+.marginbottom {
+  margin-bottom: 20px !important;
 }
 </style>

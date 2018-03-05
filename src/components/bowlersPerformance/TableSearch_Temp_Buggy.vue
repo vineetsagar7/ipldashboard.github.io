@@ -4,7 +4,7 @@
     <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header class="md-width">
       <md-table-toolbar>
         <div class="md-toolbar-section-start">
-          <h1 class="md-title">Top 20 wicktes taker</h1>
+          <h1 class="md-title">Top 20 Leading Wicket Takers Bowlers</h1>
         </div>
 
         <!-- <md-field md-clearable class="md-toolbar-section-end">
