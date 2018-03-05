@@ -1,53 +1,113 @@
 <template>
         <div>
-           <div class="md-layout-item">
+        <table-search :teamPerformance="filteredTeamsPerformance"> </table-search>  
+      <div class="md-layout-item">
             <md-field>
-                <md-select v-model="Season" name="country" id="country" placeholder="Country">
-                    <md-option value="1">Season 1</md-option>
-                    <md-option value="2">Season 2</md-option>
-                    <md-option value="3">Season 3</md-option>
-                    <md-option value="4">Season 4</md-option>
-                    <md-option value="5">Season 5</md-option>
-                    <md-option value="6">Season 6</md-option>
-                    <md-option value="7">Season 7</md-option>
-                    <md-option value="8">Season 8</md-option>
-                    <md-option value="9">Season 9</md-option>
+                <md-select v-model="selectedTeamName" name="TeamName" id="country" placeholder="Country">
+                    <md-option value="Chennai Super Kings">Chennai Super Kings</md-option>
+                    <md-option value="Kolkata Knight Riders">Kolkata Knight Riders</md-option>
+                    <md-option value="Royal Challengers Bangalore">Royal Challengers Bangalore</md-option>
+                    <md-option value="Kings XI Punjab">Kings XI Punjab</md-option>
+                    <md-option value="Rajasthan Royals">Rajasthan Royals</md-option>
+                    <md-option value="Delhi Daredevils">Delhi Daredevils</md-option>
+                    <md-option value="Mumbai Indians">Mumbai Indians</md-option>
+                    <md-option value="Kochi Tuskers Kerala">Kochi Tuskers Kerala</md-option>
+                    <md-option value="Pune Warriors">Pune Warriors</md-option>
+                    <md-option value="Sunrisers Hyderabad">Sunrisers Hyderabad</md-option>
+                    <md-option value="Rising Pune Supergiants">Rising Pune Supergiants</md-option>
+                    <md-option value="Gujarat Lions">Gujarat Lions</md-option>
+                    <md-option value="Deccan Chargers">Deccan Chargers</md-option>
                 </md-select>
             </md-field>
       </div>
-          <table-search :data="filteredTeamsPerformance" > </table-search>  
+
+<!-- Find a workaround -->
+      <div class="col" :v-model="seasonWiseGraph">
+        <div class="Chart">
+         <h1 style="text-align:center;">{{selectedTeamName}}</h1>
+         <line-example :col="seasonWiseGraph.columns" :row="seasonWiseGraph.rows"></line-example>
+         {{seasonWiseGraph}}: Noto: line Chartjs not updating
         </div>
+      </div>
+      </div>
+
+
+
 </template>
 
 <script>
 import axios from "axios";
 import TableSearch from "./TableSearch";
+import LineExample from "../../charts/LineExample";
 export default {
   name: "TeamMatchPerformance",
   components: {
     axios,
-    TableSearch
+    TableSearch,
+    LineExample
   },
   data() {
     return {
       teamPerformance: [],
-      Season: []
+      Season: [],
+      teamPerformanceGraphData: [],
+      selectedTeamName: "Chennai Super Kings",
+      sendData: {},
+      loading: false
     };
   },
   computed: {
     filteredTeamsPerformance: function() {
-      debugger;
+      if (this.teamPerformance[0] === undefined) return;
       //this.teamPerformance.filter(team => {});
-      console.log("this.teamPerformance[0] : " + this.teamPerformance);
-      return this.teamPerformance[0];
+      return this.teamPerformance[0].data.data;
+    },
+    seasonWiseGraph: function() {
+      var _this = this;
+      if (this.teamPerformanceGraphData[0] === undefined) return;
+
+      let data = this.teamPerformanceGraphData[0].data.data;
+      var filterSeasonWiseData = [];
+      data.map(x => {
+        if (x.Team_Name === _this.selectedTeamName) {
+          filterSeasonWiseData.push(x);
+        }
+      });
+
+      var row = [];
+      var col = [];
+      filterSeasonWiseData.map(x => {
+        row.push(x.won);
+        col.push(x.Season_Year);
+      });
+
+      this.sendData = {
+        rows: row,
+        columns: col
+      };
+
+      return this.sendData;
     }
   },
   created() {
     var _this = this;
     axios
+      //getMatchPerformance
       .get(`https://mighty-garden-54587.herokuapp.com/getMatchPerformance`)
       .then(response => {
-        _this.teamPerformance.push(response);
+        _this.teamPerformance.push(response.data);
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
+
+    axios
+      //getMatchPerformance
+      .get(`https://mighty-garden-54587.herokuapp.com/getMatchPerformanceGraph`)
+      .then(response => {
+        debugger;
+        _this.loading = true;
+        _this.teamPerformanceGraphData.push(response.data);
       })
       .catch(e => {
         this.errors.push(e);

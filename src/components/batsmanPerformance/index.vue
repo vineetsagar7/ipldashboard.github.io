@@ -1,16 +1,12 @@
 <template>
+  
+  <div>
 
-   <div>
-    
-    <!-- <table-search> </table-search> -->
-
+      <table-search :batsManPerformance="topbatsMan[0].data.data"> </table-search>  
 
   </div>
+ 
 </template>
-
-<style lang="scss" scoped>
-
-</style>
 
 <script>
 import axios from "axios";
@@ -22,27 +18,32 @@ export default {
     axios,
     TableSearch
   },
-
+  data() {
+    return {
+      topPerformersPerseason: [],
+      topbatsMan: []
+    };
+  },
   created() {
+    var _this = this;
     axios
       .get(`https://mighty-garden-54587.herokuapp.com/getBatsmanAggScore`)
       .then(response => {
         // JSON responses are automatically parsed.
-        this.posts = response.data;
+        _this.topbatsMan.push(response.data);
       })
       .catch(e => {
         this.errors.push(e);
       });
-  },
 
-  created() {
+    //filtering needs to be done
     axios
       .get(
         `https://mighty-garden-54587.herokuapp.com/getTopPerformersPerSeason`
       )
       .then(response => {
         // JSON responses are automatically parsed.
-        this.posts = response.data;
+        _this.topPerformersPerseason.push(response.data);
       })
       .catch(e => {
         this.errors.push(e);
@@ -52,3 +53,20 @@ export default {
   Title: "Bastman Performance"
 };
 </script>
+
+
+<style lang="scss" scoped>
+@import "~vue-material/src/components/MdAnimation/variables.scss";
+.md-card-scope {
+  max-width: 300px;
+  max-height: 100px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+//TODO: Use Media query to solve this issue
+.md-tab-scope {
+  min-height: 150px;
+}
+</style>

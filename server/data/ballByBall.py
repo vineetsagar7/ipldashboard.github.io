@@ -49,16 +49,13 @@ combineThree = pd.merge(combineTwo, sortYearManseries)
 with open('../frontendData/goldenPlayer.json', 'w') as f:
     f.write(combineThree.to_json(orient='table'))
 
-
-
-
 #Strikers------------------------------------------------------------------------------
 #2: batsmanRunScored. Sorted by max run
 runScoredPerPlayer = ballbyball.groupby(['Striker_Id'])['Batsman_Scored'].sum().reset_index()
 runScoredPerPlayer.columns = ['Player_Id','Batsman_Scored']
 mergedWithPlayer = pd.merge(runScoredPerPlayer,player)
 filterMergedWithPlayer = mergedWithPlayer[['Player_Name','Batsman_Scored']]
-batsmanAggScore = filterMergedWithPlayer.sort_values(by=['Batsman_Scored'], ascending=[False])
+batsmanAggScore = filterMergedWithPlayer.sort_values(by=['Batsman_Scored'], ascending=[False]).iloc[0:30]
 with open('../frontendData/batsmanAggScore.json', 'w') as f:
     f.write(batsmanAggScore.to_json(orient='table'))
 
@@ -111,6 +108,7 @@ seasonWiseDissmisal = result1.groupby(['Dissimal_Type']).agg({'Dissimal_Type' : 
 with open('../frontendData/seasonWiseDissmisal.json', 'w') as f:
     f.write(seasonWiseDissmisal.to_json(orient='split'))
 
+
 #4:match played by each team ------------------------------------------------------------------------------
 # #Merge and get the total match played till now.
 #a). Total match played till now.[#ui-box] | b) SeasonWise match played by team.[#ui-box]
@@ -144,6 +142,13 @@ IPLPerTeamPerformance = mergeTotalWin[['Season_Id','Team_Name', 'totalMatchedPla
 with open('../frontendData/teamPerMatchPerform.json', 'w') as f:
     f.write(IPLPerTeamPerformance.to_json(orient='table'))
 
+IPLPerTeamPerformance = IPLPerTeamPerformance[['Season_Id','Team_Name','won']].sort_values(by=['Team_Name'], ascending=[True])
+
+IPLPerTeamPerformance = IPLPerTeamPerformance[['Team_Name','Season_Id','won']]
+mergeWithYear = pd.merge(IPLPerTeamPerformance,Season )
+sortWithTeamName = mergeWithYear[['Team_Name','Season_Year','won']].sort_values(by=['Team_Name'], ascending=[True])
+with open('../frontendData/IPLPerTeamPerformanceGraph.json', 'w') as f:
+    f.write(sortWithTeamName.to_json(orient='table'))
 #orient could be any of the below
 #The format of the JSON string
 #split : dict like {index -> [index], columns -> [columns], data -> [values]}

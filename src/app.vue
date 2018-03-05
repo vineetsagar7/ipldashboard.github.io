@@ -28,13 +28,14 @@ import bowlersPerformance from "./components/bowlersPerformance";
 import sessionWisePerformance from "./components/seasionWiseper";
 import TableSearch from "./components/batsmanPerformance/TableSearch";
 import TeamMatchPerformance from './components/teamMatchPerform'
-
+import VueGoodTable from 'vue-good-table';
 
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
 
 //TDOD: import only those which are required, to imperove performence, Not using Bootstrap.....
 Vue.use(VueMaterial);
+Vue.use(VueGoodTable);
 
 export default {
   name: "app",

@@ -6,6 +6,7 @@ var runSortedBySeason = require('./frontendData/runSortedBySeason')
 var seasonWiseDissmisal = require('./frontendData/seasonWiseDissmisal')
 var topPerformersPerSeason = require('./frontendData/topPerformersBatsman')
 var goldenPlayer = require('./frontendData/goldenPlayer')
+var IPLPerTeamPerformanceGraph = require('./frontendData/IPLPerTeamPerformanceGraph')
 
 var cool = require('cool-ascii-faces');
 const express = require('express');
@@ -53,6 +54,19 @@ app.get('/getMatchPerformance', (req, res) => {
         data: teamPerMatchPerform
     });
 })
+
+app.get('/getMatchPerformanceGraph', (req, res) => {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    res.json({
+        data: IPLPerTeamPerformanceGraph
+    });
+})
+
 
 app.get('/getMmostWisketTackers', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

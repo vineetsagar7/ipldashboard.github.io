@@ -1,12 +1,14 @@
 <template>
 <div>
-  <table-search :data="mostWicketTackers[0].data.data" > </table-search>  
+  <table-search :boelerPerformance="mostWicketTackers[0].data.data" > </table-search>  
   
    <md-card>
       <md-card-header>
         <div class="md-title">Dissmisal Type in all IPL matches</div>
       </md-card-header>
       <md-card-content>
+        {{dissmisalTypeData}}
+        {{DissmisalTypeIndex}}
          <div v-if="loading">
           <pie-example :Index="DissmisalTypeIndex" :data="dissmisalTypeData"> </pie-example>
         </div>

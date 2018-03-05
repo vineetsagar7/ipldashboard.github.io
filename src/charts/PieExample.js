@@ -8,7 +8,7 @@ export default {
   },
   mounted() {
     debugger
-    console.log("data" + this.Index)
+    console.log("data----------:" + this.Index)
     this.renderChart({
       labels: this.Index[0],
       datasets: [
